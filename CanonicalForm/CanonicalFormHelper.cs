@@ -87,9 +87,10 @@ public class CanonicalFormHelper
         string sTrimmed = s.TrimStart().TrimEnd();
         if(sTrimmed == "")
             throw new ArgumentException();
-        resStr = sTrimmed.TrimStart('0').Split(" ")
+        resStr = sTrimmed.TrimStart('0').Split(" ", StringSplitOptions.RemoveEmptyEntries)
+        .Select(s => s.ToUpper()).OrderBy(s => s)
         .Where(stringInput => stringInput.Length < stringLengthLimit)
-        .Aggregate("",(current,next)=>current+next).ToUpper();
+        .Aggregate("",(current,next) => current + " " + next).Trim();
         return resStr;
     }
     /*
