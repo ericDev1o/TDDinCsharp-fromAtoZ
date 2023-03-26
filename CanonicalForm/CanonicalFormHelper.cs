@@ -2,24 +2,50 @@ public class CanonicalFormHelper
 {
     /*
     <summary>
-    Helper to capitalize a string 
-    to reduce the pattern matching complexity before comparison
+        Helper to capitalize a string 
+        to reduce the pattern matching complexity before comparison
     </summary>
-    <param name="s">string to capitalize</param>
-    <returns>S the capitalized string</return>
+    <param name="s">
+        string to capitalize
+    </param>
+    <returns>
+        S the capitalized string
+    </return>
     */
-    public static string Capitalize_EFA(string s)
+    public static string Capitalize_EFA(string? s)
     {
         if(s != null) 
             return s.ToUpper();
         else return "";
     }
-    public static string Capitalize_EFO(string s)
+    /*
+    <summary>
+        Helper to capitalize a string 
+        to reduce the pattern matching complexity before comparison
+    </summary>
+    <param name="s">
+        string to capitalize
+    </param>
+    <returns>
+        S the capitalized string
+    </return>
+    <exception cref="ArgumentNullException">
+        It is thrown when the argument is null.
+    </exception>
+    <exception cref="ArgumentException">
+        It is thrown when the argument isan empty string.
+    </exception>
+    */
+    public static string Capitalize_EFO(string? s)
     {
         string resStr = "";
-        if(s == null || s =="")
-            return resStr;
-        string[] strArray = s.Split(" ").ToArray<string>();
+        if(s == null)
+        {
+            throw new ArgumentNullException("No string to canonicalize.");
+        }
+        if(s == "")
+            throw new ArgumentException("No string to capitalize.");
+        string[] strArray = s.Split(" ");
         IEnumerable<string> resStrArray = new string[]{};
         foreach(string st in strArray)
         {
@@ -32,4 +58,46 @@ public class CanonicalFormHelper
         }
         return resStr;
     }
+     /*
+    <summary>
+        Helper to capitalize a string 
+        to reduce the pattern matching complexity before comparison
+    </summary>
+    <param name="s">
+        string to capitalize
+    </param>
+    <returns>
+        S the capitalized string
+    </return>
+    <exception cref="ArgumentNullException">
+        It is thrown when the argument is null.
+    </exception>
+    <exception cref="ArgumentException">
+        It is thrown when the argument isan empty string.
+    </exception>
+    */
+    public static string Capitalize_EFO_Linq(string? s)
+    {
+        if(s == null)
+            throw new ArgumentNullException();
+        string resStr = "";
+        short stringLengthLimit = 256;
+        if(s == "")
+            throw new ArgumentException();
+        string sTrimmed = s.TrimStart().TrimEnd();
+        if(sTrimmed == "")
+            throw new ArgumentException();
+        resStr = sTrimmed.TrimStart('0').Split(" ")
+        .Where(stringInput => stringInput.Length < stringLengthLimit)
+        .Aggregate("",(current,next)=>current+next).ToUpper();
+        return resStr;
+    }
+    /*
+    <summary>
+        These delegates fix the NUnit2044 violation.
+    </summary>
+    */
+    public delegate string Capitalize_EFA_delegate(string? s);
+    public delegate string Capitalize_EFO_delegate(string? s);
+    public delegate string Capitalize_EFO_Linq_delegate(string? s);
 }

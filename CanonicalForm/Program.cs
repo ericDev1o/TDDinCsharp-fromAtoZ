@@ -1,3 +1,16 @@
 ﻿string s = "TDDinC#fromAtoZ";
-Console.WriteLine(CanonicalFormHelper.Capitalize_EFO(s));
-Console.WriteLine(CanonicalFormHelper.Capitalize_EFA(s));
+string argumentException = "No string to canonicalize.";
+try
+{
+    Console.WriteLine(CanonicalFormHelper.Capitalize_EFA(s));
+    Console.WriteLine(CanonicalFormHelper.Capitalize_EFO(s));
+    Console.WriteLine(CanonicalFormHelper.Capitalize_EFO_Linq(s));
+}
+catch(ArgumentNullException e)
+{
+    Console.WriteLine(string.Join(e.Message, ": ",argumentException));
+}
+catch(ArgumentException e)
+{
+    Console.WriteLine(string.Join(e.Message, ": ",argumentException));
+}
