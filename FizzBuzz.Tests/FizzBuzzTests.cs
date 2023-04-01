@@ -13,54 +13,64 @@ public class FizzBuzzTests
 {
     /*
     <summary>Tests that FizzBuzz(3) returns "Fizz"</summary>
+    <param name="number">number to test FizzBuzz under</param>
     */
-    [Test]
-    public void FizzBuzz_isDivisibleBy3()
+    [TestCase("Fizz",3)]
+    [TestCase("Fizz",-9)]
+    public void FizzBuzz_isDivisibleBy3(string expected, int number)
     {
         // Arrange 
         FizzBuzz.FizzBuzzExercise testfizzbuzz = new FizzBuzzExercise();
         // Act
         // Assert
-        Assert.That(testfizzbuzz.FizzBuzz(9), Is.EqualTo("Fizz"));
+        Assert.That(testfizzbuzz.FizzBuzz(number), Is.EqualTo(expected));
     }
     /*
     <summary>Tests that FizzBuzz(5) returns "Buzz"</summary>
+    <param name="number">number to test FizzBuzz under</param>
     */
-    [Test]
-    public void FizzBuzz_isDivisibleBy5()
+    [TestCase("Buzz",5)]
+    [TestCase("Buzz",-10)]
+    public void FizzBuzz_isDivisibleBy5(string expected, int number)
     {
         // Arrange 
         FizzBuzz.FizzBuzzExercise testfizzbuzz = new FizzBuzzExercise();
         // Act
         // Assert
-        Assert.That(testfizzbuzz.FizzBuzz(10), Is.EqualTo("Buzz"));
+        Assert.That(testfizzbuzz.FizzBuzz(number), Is.EqualTo(expected));
     }
     /*
     <summary>Tests that FizzBuzz(8) returns "FizzBuzz"</summary>
+    <param name="number">number to test FizzBuzz under</param>
     */
-    [Test]
-    public void FizzBuzz_isDivisibleBy8()
+    [TestCase("finish",8)]
+    [TestCase("finish",64)]
+    [TestCase("finish",-8)]
+    public void FizzBuzz_isDivisibleBy8(string expected, int number)
     {
         // Arrange 
         FizzBuzz.FizzBuzzExercise testfizzbuzz = new FizzBuzzExercise();
         // Act
         // Assert
-        Assert.That(testfizzbuzz.FizzBuzz(64), Is.EqualTo("finish"));
+        Assert.That(testfizzbuzz.FizzBuzz(number), Is.EqualTo(expected));
     }
     /*
     <summary>Tests that FizzBuzz(other than 3 or 5 or 8) returns ""</summary>
+    <param name="number">number to test FizzBuzz under</param>
     */
-    [Test]
-    public void FizzBuzz_isDivisibleByOtherThan3or5or8()
+    [TestCase("",-11)]
+    [TestCase("",97)]
+    public void FizzBuzz_isDivisibleByOtherThan3or5or8(string expected, int number)
     {
         // Arrange 
         FizzBuzz.FizzBuzzExercise testfizzbuzz = new FizzBuzzExercise();
         // Act
         // Assert
-        Assert.That(testfizzbuzz.FizzBuzz(97), Is.EqualTo(""));
+        Assert.That(testfizzbuzz.FizzBuzz(number), Is.EqualTo(expected));
     }
      /*
     <summary>Tests that FizzBuzz(0) returns "FizzBuzzFinish"</summary>
+    <param name="number">number to test FizzBuzz under</param>
     */
     [Test]
     public void FizzBuzz_isDivisibleBy0()
@@ -73,14 +83,16 @@ public class FizzBuzzTests
     }
      /*
     <summary>Tests that FizzBuzz(other than 3 or 5 or 8 large not too large 3M1 not 3billion1) returns ""</summary>
+    <param name="number">number to test FizzBuzz under</param>
     */
-    [Test]
-    public void FizzBuzz_isDivisibleByLargeValue()
+    [TestCase("",300000001)]
+    [TestCase("",-300000001)]
+    public void FizzBuzz_isDivisibleByLargeValue(string expected, int number)
     {
         // Arrange 
         FizzBuzz.FizzBuzzExercise testfizzbuzz = new FizzBuzzExercise();
         // Act
         // Assert
-        Assert.That(testfizzbuzz.FizzBuzz(300000001), Is.EqualTo(""));
+        Assert.That(testfizzbuzz.FizzBuzz(number), Is.EqualTo(expected));
     }
 }
