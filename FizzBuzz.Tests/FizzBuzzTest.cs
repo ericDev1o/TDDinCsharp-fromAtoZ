@@ -11,6 +11,13 @@ namespace FizzBuzz.Tests;
 [TestFixture]
 public class FizzBuzzTests
 {
+    FizzBuzzExercise _fizzBuzzExercise;
+
+    //[Setup]
+    public void Setup()
+    {
+        _fizzBuzzExercise = new FizzBuzzExercise();
+    }
     /*
     <summary>Tests that FizzBuzz(3) returns "Fizz"</summary>
     <param name="number">number to test FizzBuzz under</param>

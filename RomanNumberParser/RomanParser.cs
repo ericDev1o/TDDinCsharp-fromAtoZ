@@ -1,19 +1,19 @@
 namespace RomanNumberParser;
 /*
 <summary>
-    This class implements a simple roman nuùber parser.
+    This class implements a simple roman number parser.
 </summary>
 */
 public class RomanParser
 {
     /*
     <summary>
-        This method converts a roman number in the decimal value
+        This method converts a roman number in the decimal value switching each case.
     </summary>
     <param name="romanNum">For example I, V, X, L, C, M</param>
     <returns>Respectively 1, 5, 10, 50, 100, 1000</returns>
     */
-    public int Parse(string romanNum)
+    public int ParseSwitch(string romanNum)
     {
         switch(romanNum)
         {
@@ -32,5 +32,27 @@ public class RomanParser
             default:
                 return 0;
         }
+    }
+    /*
+    <summary>
+        This method converts a roman number in the decimal value reading it in a for loop.
+    </summary>
+    <param name="romanNum">For example I, V, X, L, C, M</param>
+    <returns>Respectively 1, 5, 10, 50, 100, 1000</returns>
+    */
+    public int ParseForLoop(string romanNum)
+    {
+        char[] specialMinus1Cases = new char[] {'V', 'X', 'C', 'M'};
+        for(int i = 0; i < romanNum.Length; i++)
+        {
+            char c = romanNum[i];
+            char cplus1 = romanNum[i+1];
+
+            if(specialMinus1Cases.Contains(cplus1))
+            {
+                string specialMinus1Number = string.Concat(c, cplus1);
+            }
+        }
+        return 0;
     }
 }

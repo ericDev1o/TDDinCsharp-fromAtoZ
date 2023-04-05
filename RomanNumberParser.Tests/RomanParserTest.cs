@@ -27,7 +27,7 @@ public class RomanParserTests
     {
         // Arrange
         // Act
-        int res = _romanNumberParser.Parse(romanNum);
+        int res = _romanNumberParser.ParseSwitch(romanNum);
         // Assert
         Assert.That(res, Is.EqualTo(decimalNum));
     }
