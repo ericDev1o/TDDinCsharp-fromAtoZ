@@ -14,7 +14,7 @@ public class FizzBuzzTests
     FizzBuzzExercise _fizzBuzzExercise;
 
     //[Setup]
-    public void Setup()
+    public FizzBuzzTests()
     {
         _fizzBuzzExercise = new FizzBuzzExercise();
     }
