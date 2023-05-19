@@ -22,6 +22,7 @@ public class Tests
     </summary>
     <param name="index">board index to check the unset state</param>
     */
+    [TestCase(0)]
     [TestCase(1)]
     [TestCase(2)]
     [TestCase(3)]
@@ -30,7 +31,6 @@ public class Tests
     [TestCase(6)]
     [TestCase(7)]
     [TestCase(8)]
-    [TestCase(9)]
     public void CreateGame_StatesUnset(short index)
     {
         //Arrange
@@ -60,7 +60,7 @@ public class Tests
         This test asserts that an invalid move throws an ArgumentOutOfRangeException..
     </summary>
     */
-    [TestCase(0)]
+    [TestCase(-1)]
     [TestCase(10)]
     public void MakeInvalidMove_ThrowsArgumentOutOfRangeException(short squareIndex)
     {
@@ -123,10 +123,42 @@ public class Tests
         //Arrange
         Game game = new Game();
         //Act
-        game.MakeMove(1, State.Zero);
-        game.MakeMove(4, State.Zero);
-        game.MakeMove(7, State.Zero);
+        game.MakeMove(0, State.Zero);
+        game.MakeMove(3, State.Zero);
+        game.MakeMove(6, State.Zero);
         //Assert
-        Assert.IsTrue(game.CheckWin());
+        Assert.That(game.CheckWin(), Is.EqualTo(WinState.Zeroes));
+    }
+    /*
+    <summary>
+        This test asserts that a horizontal crosses line wins the game.
+    </summary>
+    */
+    public void PlayHorizontalCrossesLine_WinsGame()
+    {
+        //Arrange
+        Game game = new Game();
+        //Act
+        game.MakeMove(0, State.Cross);
+        game.MakeMove(1, State.Cross);
+        game.MakeMove(2, State.Cross);
+        //Assert
+        Assert.That(game.CheckWin(), Is.EqualTo(WinState.Crosses));
+    }
+    /*
+    <summary>
+        This test asserts that a vertical zeroes line wins the game.
+    </summary>
+    */
+    public void PlayDiagonalZeroesLine_WinsGame()
+    {
+        //Arrange
+        Game game = new Game();
+        //Act
+        game.MakeMove(0, State.Zero);
+        game.MakeMove(4, State.Zero);
+        game.MakeMove(8, State.Zero);
+        //Assert
+        Assert.That(game.CheckWin(), Is.EqualTo(WinState.Zeroes));
     }
 }

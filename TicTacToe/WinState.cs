@@ -3,5 +3,6 @@ public enum WinState
 {
     Crosses,
     Zeroes,
-    Draw
+    Draw,
+    GameOngoing
 }

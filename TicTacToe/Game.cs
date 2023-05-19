@@ -7,7 +7,7 @@ public class Game
     public bool Win {get; private set;} = false;
     public Game()
     {
-        for(int i=1; i < 10; i++)
+        for(int i=0; i<9; i++)
         {
             Board[i] = State.Unset;
         }
@@ -23,7 +23,7 @@ public class Game
     */
     public State GetState(short index)
     {
-        if(index < 1 || index > 9)
+        if(index < 0 || index > 8)
         {
             throw new ArgumentOutOfRangeException
             (
@@ -45,7 +45,7 @@ public class Game
     */
     public void MakeMove(short squareIndex, State state)
     {
-        if(squareIndex < 1 || squareIndex > 9)
+        if(squareIndex < 0 || squareIndex > 8)
         {
             throw new ArgumentOutOfRangeException
             (
@@ -80,118 +80,30 @@ public class Game
         else false
     </returns>
     */
-    public bool CheckWin()
+    public WinState CheckWin()
     {
-        if
-        (
-            //vertical zeroes
-            (
-                GetState(1)==State.Zero 
-                && GetState(4)==State.Zero 
-                && GetState(7)==State.Zero
-            ) ||
-            (
-                GetState(2)==State.Zero 
-                && GetState(5)==State.Zero 
-                && GetState(8)==State.Zero
-            ) ||
-            (
-                GetState(3)==State.Zero 
-                && GetState(6)==State.Zero 
-                && GetState(9)==State.Zero
-            ) ||
-            // horizontal crosses
-            (
-                GetState(1)==State.Zero 
-                && GetState(2)==State.Zero 
-                && GetState(3)==State.Zero
-            ) ||
-            (
-                GetState(4)==State.Zero 
-                && GetState(5)==State.Zero 
-                && GetState(6)==State.Zero
-            ) ||
-            (
-                GetState(7)==State.Zero 
-                && GetState(8)==State.Zero 
-                && GetState(9)==State.Zero
-            ) ||
-            // diagonal zeroes
-            (
-                GetState(1)==State.Zero 
-                && GetState(5)==State.Zero 
-                && GetState(9)==State.Zero
-            ) ||
-            (
-                GetState(3)==State.Zero 
-                && GetState(5)==State.Zero 
-                && GetState(7)==State.Zero
-            ) ||
-            // vertical crosses
-            (
-                GetState(1)==State.Cross 
-                && GetState(4)==State.Cross 
-                && GetState(7)==State.Cross
-            ) ||
-            (
-                GetState(2)==State.Cross 
-                && GetState(5)==State.Cross 
-                && GetState(8)==State.Cross
-            ) ||
-            (
-                GetState(3)==State.Cross 
-                && GetState(6)==State.Cross 
-                && GetState(9)==State.Cross
-            ) ||
-            // horizontal crosses
-            (
-                GetState(1)==State.Cross 
-                && GetState(2)==State.Cross 
-                && GetState(3)==State.Cross
-            ) ||
-             (
-                GetState(4)==State.Cross 
-                && GetState(5)==State.Cross 
-                && GetState(6)==State.Cross
-            ) ||
-            (
-                GetState(7)==State.Cross 
-                && GetState(8)==State.Cross 
-                && GetState(9)==State.Cross
-            ) ||
-            // diagonal crosses
-            (
-                GetState(1)==State.Cross 
-                && GetState(5)==State.Cross 
-                && GetState(9)==State.Cross
-            ) ||
-             (
-                GetState(3)==State.Cross 
-                && GetState(5)==State.Cross 
-                && GetState(7)==State.Cross
-            )
-        )
-        {
-           return true;
-        }
-        else return false;
+        GameHelper.CheckHorizontalLineHelper(this);
+        GameHelper.CheckVerticalLineHelper(this);
+        GameHelper.CheckDiagonalLineHelper(this);
+        return WinState.GameOngoing;
     }
     /*
     <summary>
         This method prints a visualization of the board.
     </summary>
     */
-    public void GameToString()
+    public string GameToString()
     {
         StringBuilder sb = new StringBuilder();
         sb.AppendLine(" ___ ___ ___ ");
-        for(int i = 0; i<10; i+=3)
+        for(int i = 0; i<9; i+=3)
         {
             sb.AppendLine
             (
                 $"| {GameHelper.SquareToString(Board[i])} | {GameHelper.SquareToString(Board[i+1])} | {GameHelper.SquareToString(Board[i+2])} |"
             );
+            sb.AppendLine(" ___ ___ ___");
         }
-        sb.AppendLine(" ___ ___ ___");
+        return sb.ToString();
     }
 }
