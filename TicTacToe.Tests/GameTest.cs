@@ -22,6 +22,7 @@ public class Tests
     </summary>
     <param name="index">board index to check the unset state</param>
     */
+    [Test]
     [TestCase(0)]
     [TestCase(1)]
     [TestCase(2)]
@@ -60,6 +61,7 @@ public class Tests
         This test asserts that an invalid move throws an ArgumentOutOfRangeException..
     </summary>
     */
+    [Test]
     [TestCase(-1)]
     [TestCase(10)]
     public void MakeInvalidMove_ThrowsArgumentOutOfRangeException(short squareIndex)
@@ -81,6 +83,7 @@ public class Tests
         This test asserts that an invalid move throws an ArgumentOutOfRangeException..
     </summary>
     */
+    [Test]
     [TestCase(1)]
     public void MoveOnTheSameQuareTwice_ThrowsInvalidOperationException(short squareIndex)
     {
@@ -102,6 +105,7 @@ public class Tests
         This test asserts that a move changes the state correctly.
     </summary>
     */
+    [Test]
     [TestCase(State.Cross)]
     [TestCase(State.Zero)]
     public void MakingMoves_SetStateCorrectly(State state)
@@ -118,6 +122,7 @@ public class Tests
         This test asserts that a vertical zeroes line wins the game.
     </summary>
     */
+    [Test]
     public void PlayVerticalZeroesLine_WinsGame()
     {
         //Arrange
@@ -134,6 +139,7 @@ public class Tests
         This test asserts that a horizontal crosses line wins the game.
     </summary>
     */
+    [Test]
     public void PlayHorizontalCrossesLine_WinsGame()
     {
         //Arrange
@@ -150,6 +156,7 @@ public class Tests
         This test asserts that a vertical zeroes line wins the game.
     </summary>
     */
+    [Test]
     public void PlayDiagonalZeroesLine_WinsGame()
     {
         //Arrange

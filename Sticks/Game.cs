@@ -11,12 +11,17 @@ public class Game
     public Player? PlayedLast { get; set;}
     public Game(short numberOfSticks)
     {
-        sticks = new List<Stick>();
-        for(short s = 0; s < numberOfSticks; s++)
+        if(numberOfSticks < 2)
+            throw new ArgumentException("There must be at least 2 sticks to play the game.");
+        else
         {
-            sticks.Add(new Stick());
+            sticks = new List<Stick>();
+            for(short s = 0; s < numberOfSticks; s++)
+            {
+                sticks.Add(new Stick());
+            }
+            Console.WriteLine(String.Concat("The game is started. ", ToString()));
         }
-        Console.WriteLine(String.Concat("The game is started. ", ToString()));
     }
     /*
     <summary>

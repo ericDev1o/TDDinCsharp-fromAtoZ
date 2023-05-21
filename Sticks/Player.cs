@@ -22,10 +22,16 @@ public class Player
     */
     public void PickStick(Game game, short numberOfSticks)
     {
-        PickedSticks.AddRange(game.sticks.Take(numberOfSticks));
-        game.Play(numberOfSticks);
-        game.PlayedLast = this;
-        Console.WriteLine(String.Concat("Player ", Name, " picks ", numberOfSticks, " sticks."));
+        if(numberOfSticks <= 0 || numberOfSticks > game.sticks.Count)
+            throw new ArgumentException(
+                "The number of picked sticks must be a positive number less or equal than the created game's sticks number.");
+        else
+        {
+            PickedSticks.AddRange(game.sticks.Take(numberOfSticks));
+            game.Play(numberOfSticks);
+            game.PlayedLast = this;
+            Console.WriteLine(String.Concat("Player ", Name, " picks ", numberOfSticks, " sticks."));
+        }
     }
     /*
     <summary>
