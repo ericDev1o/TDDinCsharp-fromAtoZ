@@ -1,5 +1,13 @@
 namespace TicTacToe;
 using System.Text;
+/*
+<summary>
+    The TicTacToe game is a 1 vs 1 game played on a 3 by 3 square board.
+    The winner is the one who made a 3 squares line either horizontal, vertical or diagonal.
+    One of the player writes crosses, the other zeroes.
+    Each player plays one symbol written at a time in turn.
+</summary>
+*/
 public class Game
 {
     public static short MoveCounter{ get; private set;} = 0;
