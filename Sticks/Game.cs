@@ -26,6 +26,8 @@ public class Game
     /*
     <summary>
         From the game's sight sticks are removed when a player picks them.
+        This method is used in Player.PickStick method.
+        The number of sticks is checked at Player.PickStick level.
     </summary>
     <param name="numberOfSticks">
         The sticks picked by a player left the game.
@@ -40,8 +42,6 @@ public class Game
                 sticks.Remove(sticks.ElementAt(s));
             }
         }
-        Console.WriteLine(String.Concat(PlayedLast?.Name, " played"));
-        Console.WriteLine(ToString());
     }
     /*
     <summary>
@@ -68,6 +68,11 @@ public class Game
     }
     public override string ToString()
     {
-        return String.Concat("There are ", sticks.Count," sticks left in the game.");
+        if(sticks.Count>1)
+            return String.Concat("There are ", sticks.Count," sticks left in the game.");
+        else if(sticks.Count == 1)
+            return String.Concat("There is ", sticks.Count, " stick left in te game");
+        else
+            return String.Concat("There's no stick left in the game.");
     }
 }

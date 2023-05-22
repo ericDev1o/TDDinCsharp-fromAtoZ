@@ -30,16 +30,10 @@ public class Player
             PickedSticks.AddRange(game.sticks.Take(numberOfSticks));
             game.Play(numberOfSticks);
             game.PlayedLast = this;
-            Console.WriteLine(String.Concat("Player ", Name, " picks ", numberOfSticks, " sticks."));
+            string sticksNumber = " sticks";
+            if(numberOfSticks == 1)
+                sticksNumber = " stick";
+            Console.WriteLine(String.Concat(Name, " picks ", numberOfSticks, sticksNumber));
         }
-    }
-    /*
-    <summary>
-        This ToString is only used in the console's program.
-    </summary>
-    */
-    public override string ToString()
-    {
-        return String.Concat("Player ", Name);
     }
 }
