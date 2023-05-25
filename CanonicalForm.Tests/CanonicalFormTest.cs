@@ -55,7 +55,7 @@ public class Tests
     [Test]
     public void CanonicalForm_EFA_nullArgumentHandled()
     {
-        /// Arrange
+        // Arrange
         _canonicalizeDelegate delegateCapitalize = new _canonicalizeDelegate(CanonicalFormHelper.Capitalize_EFA);
         /// Act Assert
         Assert.That(delegateCapitalize(_s_null), Is.EqualTo(""));
@@ -80,7 +80,7 @@ public class Tests
     */
     /*public void CanonicalForm_EFO_nullArgumentHandled()
     {
-        /// Arrange
+        // Arrange
         _canonicalizeDelegate delegateCapitalize = new _canonicalizeDelegate(CanonicalFormHelper.Capitalize_EFO);
         /// Act Assert
         Assert.That(delegateCapitalize(_s_null), Throws.ArgumentNullException);
@@ -93,7 +93,7 @@ public class Tests
     */
     /*public void CanonicalForm_EFO_emptyStringArgumentHandled()
     {
-        /// Arrange
+        // Arrange
         _canonicalizeDelegate delegateCapitalize = new _canonicalizeDelegate(CanonicalFormHelper.Capitalize_EFO);
         /// Act Assert
         Assert.That(delegateCapitalize(_s_null), Throws.ArgumentException);
@@ -106,7 +106,7 @@ public class Tests
     */
     /*public void CanonicalForm_EFO_Linq_nullArgumentHandled()
     {
-        /// Arrange
+        // Arrange
         _canonicalizeDelegate delegateCapitalize = new _canonicalizeDelegate(CanonicalFormHelper.Capitalize_EFO_Linq);
         /// Act Assert
         Assert.That(delegateCapitalize(_s_null), Throws.ArgumentNullException);
@@ -119,7 +119,7 @@ public class Tests
     */
     /*public void CanonicalForm_EFO_Linq_emptyStringArgumentHandled()
     {
-        /// Arrange
+        // Arrange
         _canonicalizeDelegate delegateCapitalize = new _canonicalizeDelegate(CanonicalFormHelper.Capitalize_EFO_Linq);
         /// Act Assert
         Assert.That(delegateCapitalize(""), Throws.ArgumentException);

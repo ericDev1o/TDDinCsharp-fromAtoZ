@@ -5,7 +5,7 @@ public class StackKataTest
     [Test]
     public void IsEmpty_EmptyStack_ReturnsTrue()
     {
-        /// Arrange
+        // Arrange
         StackKata stackKata = new StackKata();
         /// Act
         /// Assert
@@ -14,7 +14,7 @@ public class StackKataTest
     [Test]
     public void Count_Pushed1Element_Returns1()
     {
-        /// Arrange
+        // Arrange
         StackKata stackKata = new StackKata();
         short toAdd = 1;
         /// Act
@@ -24,9 +24,9 @@ public class StackKataTest
         Assert.That(stackKata.Counter, Is.EqualTo(1));
     }
     [Test]
-    public void Pop_EmptyStack_Throws()
+    public void Pop_EmptyStack_ThrowsException()
     {
-         /// Arrange
+         // Arrange
         StackKata stackKata = new StackKata();
         /// Act
         /// Assert
@@ -36,7 +36,7 @@ public class StackKataTest
     [Test]
     public void Count_Popped1Element_ReturnsCounterMinus1()
     {
-        /// Arrange
+        // Arrange
         StackKata stackKata = new StackKata();
         short toAdd = 1;
         stackKata.Push(toAdd);
@@ -47,9 +47,9 @@ public class StackKataTest
         Assert.That(stackKata.Counter, Is.EqualTo(0));
     }
     [Test]
-    public void Peek_EmptyStack_Throws()
+    public void Peek_EmptyStack_ThrowsException()
     {
-         /// Arrange
+         // Arrange
         StackKata stackKata = new StackKata();
         /// Act
         /// Assert
@@ -59,7 +59,7 @@ public class StackKataTest
     [Test]
     public void Peek_Pushed2Element_ReturnsTheLastPushedElement()
     {
-        /// Arrange
+        // Arrange
         StackKata stackKata = new StackKata();
         short toAdd = 1;
         short toAdd2 = 2;
@@ -75,7 +75,7 @@ public class StackKataTest
     [Test]
     public void Peek_Pushed2ElementPop_ReturnsTheFirstPushedElement()
     {
-        /// Arrange
+        // Arrange
         StackKata stackKata = new StackKata();
         short toAdd = 1;
         short toAdd2 = 2;

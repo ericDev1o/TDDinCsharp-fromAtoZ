@@ -4,7 +4,7 @@ public class GameTest
     [Test]
     public void GameStartsWithLessThan2Sticks_Throws()
     {
-        /// Arrange Act Assert
+        // Arrange Act Assert
         Assert.Throws<ArgumentException>(() => new Game(1));
     }
     [Test]
@@ -12,7 +12,7 @@ public class GameTest
     [TestCase(3)]
     public void PlayerPicksAnInvalidNumberOfSticks_Throws(short numberOfSticks)
     {
-        /// Arrange
+        // Arrange
         Player tester = new Player("Tester");
         Game game = new Game(2);
         /// Act Assert
@@ -25,7 +25,7 @@ public class GameTest
     [Test]
     public void PlayerWhoPicksLastStick_Loses()
     {
-        /// Arrange
+        // Arrange
         Player winner = new Player("Winner");
         Player loser = new Player("Loser");
         Game game = new Game(2);

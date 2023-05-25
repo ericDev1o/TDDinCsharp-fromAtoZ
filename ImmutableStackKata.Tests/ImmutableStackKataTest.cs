@@ -11,7 +11,7 @@ public class ImmutableStackKataTest
     [Test]
     public void IsEmpty_EmptyStack_ReturnsTrue()
     {
-        /// Arrange
+        // Arrange
         ImmutableStackKata<short> immutableStackKata = new ImmutableStackKata<short>();
         /// Act
         /// Assert
@@ -21,7 +21,7 @@ public class ImmutableStackKataTest
     [Test]
     public void Peek_EmptyStack_ThrowsException()
     {
-        /// Arrange
+        // Arrange
         ImmutableStackKata<short> immutableStackKata = new ImmutableStackKata<short>();
         /// Act
         /// Assert
@@ -30,7 +30,7 @@ public class ImmutableStackKataTest
     [Test]
     public void Pop_EmptyStack_ThrowsException()
     {
-        /// Arrange
+        // Arrange
         ImmutableStackKata<short> immutableStackKata = new ImmutableStackKata<short>();
         /// Act
         /// Assert
@@ -39,7 +39,7 @@ public class ImmutableStackKataTest
     [Test]
     public void Push2ItemsPeek1_EmptyStack_PeekReturnsLastInsertedItem()
     {
-        /// Arrange
+        // Arrange
         IStack<short> immutableStackKata = new ImmutableStackKata<short>();
         /// Act
         immutableStackKata = immutableStackKata.Push(1);
@@ -52,7 +52,7 @@ public class ImmutableStackKataTest
     [Test]
     public void Push1ItemPop1_EmptyStack_IsEmptyReturnsTrue()
     {
-        /// Arrange
+        // Arrange
         IStack<short> immutableStackKata = new ImmutableStackKata<short>();
         /// Act
         immutableStackKata = immutableStackKata.Push(1);
