@@ -83,7 +83,7 @@ public class LinkedListTest
         linkedListKata.AddFirst('a');
         char itemFirst = linkedListKata.First();
         // Assert
-        Assert.AreNotEqual(itemFirst, itemFirstBeforeAdding);
+        Assert.That(itemFirst, Is.Not.EqualTo(itemFirstBeforeAdding));
     }
     /*
     <summary>
@@ -112,7 +112,7 @@ public class LinkedListTest
         linkedListKata.AddFirst('a');
         char itemLast = linkedListKata.First();
         // Assert
-        Assert.AreNotEqual(itemLast, itemLastBeforeAdding);
+        Assert.That(itemLast, Is.Not.EqualTo(itemLastBeforeAdding));
     }
     [Test]
     public void RemoveFirst_EmptyList_CountEquals1()
@@ -135,7 +135,7 @@ public class LinkedListTest
         linkedListKata.RemoveFirst();
         char itemFirst = linkedListKata.First();
         // Assert
-        Assert.AreNotEqual(itemFirst, itemFirstBeforeRemoval);
+        Assert.That(itemFirst, Is.Not.EqualTo(itemFirstBeforeRemoval));
     }
     [Test]
     public void RemoveLast_EmptyList_CountEquals1()
@@ -159,7 +159,7 @@ public class LinkedListTest
         linkedListKata.RemoveLast();
         char itemLast = linkedListKata.Last();
         // Assert
-        Assert.AreNotEqual(itemLast, itemLastBeforeRemoval);
+        Assert.That(itemLast, Is.Not.EqualTo(itemLastBeforeRemoval));
     }
     [Test]
     public void RemoveFirst_EmptyList_ThrowsException()

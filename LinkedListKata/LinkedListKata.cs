@@ -33,7 +33,8 @@ public class LinkedListKata<T> : ILinkedList<T>
     }
     public void AddFirst(T item)
     {
-
+        List<T> MyListAdded = new List<T>{item};
+        MyListAdded.AddRange(MyList);
     }
     public void AddLast(T item)
     {
@@ -41,11 +42,11 @@ public class LinkedListKata<T> : ILinkedList<T>
     }
     public void RemoveFirst()
     {
-
+        MyList.RemoveAt(0);
     }
     public void RemoveLast()
     {
-
+        MyList.RemoveAt(MyList.Count - 1);
     }
     public T Current()
     {
