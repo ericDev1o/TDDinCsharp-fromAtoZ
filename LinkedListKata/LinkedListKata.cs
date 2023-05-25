@@ -13,7 +13,7 @@ namespace LinkedListKata;
 public class LinkedListKata<T> : ILinkedList<T>
 {
     public short CurrentIdx { get{ return CurrentIdx;} set {} }
-    public List<T> MyList { get; }
+    public List<T> MyList { get; internal set;}
     public LinkedListKata()
     {
         MyList = new List<T>();
@@ -35,6 +35,7 @@ public class LinkedListKata<T> : ILinkedList<T>
     {
         List<T> MyListAdded = new List<T>{item};
         MyListAdded.AddRange(MyList);
+        MyList = MyListAdded;
     }
     public void AddLast(T item)
     {
