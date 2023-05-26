@@ -1,5 +1,5 @@
 namespace TicTacToe.Tests;
-
+[TestFixture]
 public class Tests
 {
     /*

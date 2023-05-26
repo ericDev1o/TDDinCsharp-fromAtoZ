@@ -1,4 +1,5 @@
 namespace Sticks.Tests;
+[TestFixture]
 public class GameTest
 {
     [Test]

@@ -5,6 +5,7 @@ namespace LinkedListKata.Tests;
     It adds first, adds last, removes first, removes last and enumerates.
 </summary>
 */
+[TestFixture]
 public class LinkedListTest
 {
     /*
@@ -35,6 +36,17 @@ public class LinkedListTest
         ILinkedList<char> linkedListKata = new LinkedListKata<char>();
         // Act Assert
         Assert.Throws<InvalidOperationException>(() => linkedListKata.Last());
+    }
+    [Test]
+    public void FirstAndLast_2itemsList_AreSame()
+    {
+        // Arrange
+        ILinkedList<char> linkedListKata = new LinkedListKata<char>();
+        linkedListKata.AddLast('a');
+        linkedListKata.AddLast('b');
+        // Act 
+        // Assert
+        Assert.That(linkedListKata.First(), Is.EqualTo(linkedListKata.Last()));
     }
     [Test]
     public void Last_2itemsList_ReturnsLast()

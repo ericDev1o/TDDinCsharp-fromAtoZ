@@ -1,5 +1,5 @@
 namespace StackKata.Tests;
-
+[TestFixture]
 public class StackKataTest
 {
     [Test]

@@ -1,5 +1,5 @@
 namespace CanonicalForm.Tests;
-
+[TestFixture]
 public class Tests
 {
     string _s = "";
@@ -12,8 +12,8 @@ public class Tests
     }
     /*
     <summary>
-    Assert that CanonicalFormHelper.Capitalize_EFA returns the expected result.
-    It must be the capitalized string or empty if null or empty.
+        Assert that CanonicalFormHelper.Capitalize_EFA returns the expected result.
+        It must be the capitalized string or empty if null or empty.
     </summary>
     */
     [Test]
@@ -24,8 +24,8 @@ public class Tests
     }
     /*
     <summary>
-    Assert that CanonicalFormHelper.Capitalize_EFO returns the expected result.
-    It throws ArgumentNullException if the argument is null.
+        Assert that CanonicalFormHelper.Capitalize_EFO returns the expected result.
+        It throws ArgumentNullException if the argument is null.
     </summary>
     */
     [Test]
@@ -36,9 +36,9 @@ public class Tests
     }
     /*
     <summary>
-    Assert that CanonicalFormHelper.Capitalize_EFO_Linq returns the expected result.
-    It throws ArgumentNullException if the argument is null.
-    </summary>
+        Assert that CanonicalFormHelper.Capitalize_EFO_Linq returns the expected result.
+        It throws ArgumentNullException if the argument is null.
+        </summary>
     */
     /*[Test]
     public void CanonicalForm_EFO_Linq_isCapitalized()
@@ -48,8 +48,8 @@ public class Tests
     }*/
     /*
     <summary>
-    Assert that CanonicalFormHelper.Capitalize_EFA returns the expected result.
-    It throws ArgumentNullException if the argument is null.
+        Assert that CanonicalFormHelper.Capitalize_EFA returns the expected result.
+        It throws ArgumentNullException if the argument is null.
     </summary>
     */
     [Test]
@@ -62,8 +62,8 @@ public class Tests
     }
     /*
     <summary>
-    Assert that CanonicalFormHelper.Capitalize_EFA returns the expected result.
-    It throws ArgumentException if the argument is an empty string.
+        Assert that CanonicalFormHelper.Capitalize_EFA returns the expected result.
+        It throws ArgumentException if the argument is an empty string.
     </summary>
     */
     [Test]
@@ -74,8 +74,8 @@ public class Tests
     }
     /*
     <summary>
-    Assert that CanonicalFormHelper.Capitalize_EFO returns the expected result.
-    It throws ArgumentNullException if the argument is null.
+        Assert that CanonicalFormHelper.Capitalize_EFO returns the expected result.
+        It throws ArgumentNullException if the argument is null.
     </summary>
     */
     /*public void CanonicalForm_EFO_nullArgumentHandled()
@@ -87,8 +87,8 @@ public class Tests
     }*/
     /*
     <summary>
-    Assert that CanonicalFormHelper.Capitalize_EFO returns the expected result.
-    It throws ArgumentException if the argument is an empty string.
+        Assert that CanonicalFormHelper.Capitalize_EFO returns the expected result.
+        It throws ArgumentException if the argument is an empty string.
     </summary>
     */
     /*public void CanonicalForm_EFO_emptyStringArgumentHandled()
@@ -100,8 +100,8 @@ public class Tests
     }*/
     /*
     <summary>
-    Assert that CanonicalFormHelper.Capitalize_EFO_Linq returns the expected result.
-    It throws ArgumentNullException if the argument is null.
+        Assert that CanonicalFormHelper.Capitalize_EFO_Linq returns the expected result.
+        It throws ArgumentNullException if the argument is null.
     </summary>
     */
     /*public void CanonicalForm_EFO_Linq_nullArgumentHandled()
@@ -113,8 +113,8 @@ public class Tests
     }*/
     /*
     <summary>
-    Assert that CanonicalFormHelper.Capitalize_EFO_Linq returns the expected result.
-    It throws ArgumentException if the argument is an empty string.
+        Assert that CanonicalFormHelper.Capitalize_EFO_Linq returns the expected result.
+        It throws ArgumentException if the argument is an empty string.
     </summary>
     */
     /*public void CanonicalForm_EFO_Linq_emptyStringArgumentHandled()

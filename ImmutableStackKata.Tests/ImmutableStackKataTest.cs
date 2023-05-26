@@ -6,6 +6,7 @@ namespace ImmutableStackKata.Tests;
     the state history use case isn't obvious for now.
 </summary>
 */
+[TestFixture]
 public class ImmutableStackKataTest
 {
     [Test]

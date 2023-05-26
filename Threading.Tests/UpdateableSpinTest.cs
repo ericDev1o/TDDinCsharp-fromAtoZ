@@ -1,5 +1,5 @@
 namespace Threading.Tests;
-
+[TestFixture]
 public class UpdateableSpinTest
 {
     UpdateableSpin _updateableSpin;

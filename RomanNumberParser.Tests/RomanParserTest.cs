@@ -4,6 +4,7 @@ namespace RomanNumberParser.Tests;
     This class checks the RomanNumberParser.Parse() method
 </summary>
 */
+[TestFixture]
 public class RomanParserTests
 {
     RomanParser _romanNumberParser;
