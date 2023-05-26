@@ -41,20 +41,24 @@ public class LinkedListTest
     {
         // Arrange
         ILinkedList<char> linkedListKata = new LinkedListKata<char>();
+        linkedListKata.AddLast('a');
+        linkedListKata.AddLast('b');
         // Act 
-        char itemLast = linkedListKata.Last();
+        char itemLast = linkedListKata.MyList[linkedListKata.MyList.Count - 1];
         // Assert
-        Assert.That(itemLast, Is.EqualTo(linkedListKata.MyList[linkedListKata.MyList.Count - 1]));
+        Assert.That(itemLast, Is.EqualTo(linkedListKata.Last()));
     }
     [Test]
     public void First_2itemsList_ReturnsFirst()
     {
         // Arrange
         ILinkedList<char> linkedListKata = new LinkedListKata<char>();
+        linkedListKata.AddFirst('b');
+        linkedListKata.AddFirst('a');
         // Act 
-        char itemFirst = linkedListKata.First();
+        char itemFirst = linkedListKata.MyList[0];
         // Assert
-        Assert.That(itemFirst, Is.EqualTo(linkedListKata.MyList[0]));
+        Assert.That(itemFirst, Is.EqualTo(linkedListKata.First()));
     }
     [Test]
     public void AddFirst_EmptyList_CountEquals1()
@@ -78,6 +82,7 @@ public class LinkedListTest
     {
         // Arrange
         ILinkedList<char> linkedListKata = new LinkedListKata<char>();
+        linkedListKata.AddFirst('b');
         char itemFirstBeforeAdding = linkedListKata.First();
         // Act
         linkedListKata.AddFirst('a');
@@ -107,29 +112,34 @@ public class LinkedListTest
     {
         // Arrange
         ILinkedList<char> linkedListKata = new LinkedListKata<char>();
+        linkedListKata.AddLast('b');
         char itemLastBeforeAdding = linkedListKata.Last();
         // Act
-        linkedListKata.AddFirst('a');
-        char itemLast = linkedListKata.First();
+        linkedListKata.AddLast('a');
+        char itemLast = linkedListKata.Last();
         // Assert
         Assert.That(itemLast, Is.Not.EqualTo(itemLastBeforeAdding));
     }
     [Test]
-    public void RemoveFirst_EmptyList_CountEquals1()
+    public void RemoveFirst_1itemList_CountEquals0()
     {
         // Arrange
         ILinkedList<char> linkedListKata = new LinkedListKata<char>();
+        linkedListKata.AddFirst('a');
         int countBeforeRemoval = linkedListKata.MyList.Count;
         // Act
+        linkedListKata.RemoveFirst();
         int count = linkedListKata.MyList.Count;
         // Assert
         Assert.That(count, Is.EqualTo(countBeforeRemoval - 1));
     }
     [Test]
-    public void RemoveFirst_EmptyList_RemovedAtTheBeginning()
+    public void RemoveFirst_2itemsList_RemovedAtTheBeginning()
     {
         // Arrange
         ILinkedList<char> linkedListKata = new LinkedListKata<char>();
+        linkedListKata.AddFirst('a');
+        linkedListKata.AddFirst('b');
         char itemFirstBeforeRemoval = linkedListKata.First();
         // Act
         linkedListKata.RemoveFirst();
@@ -138,22 +148,25 @@ public class LinkedListTest
         Assert.That(itemFirst, Is.Not.EqualTo(itemFirstBeforeRemoval));
     }
     [Test]
-    public void RemoveLast_EmptyList_CountEquals1()
+    public void RemoveLast_1itemList_CountEquals0()
     {
         // Arrange
         ILinkedList<char> linkedListKata = new LinkedListKata<char>();
+        linkedListKata.AddLast('a');
         int countBeforeRemoval = linkedListKata.MyList.Count;
         // Act
-        linkedListKata.RemoveFirst();
+        linkedListKata.RemoveLast();
         int count = linkedListKata.MyList.Count;
         // Assert
         Assert.That(count, Is.EqualTo(countBeforeRemoval - 1));
     }
     [Test]
-    public void RemoveLast_EmptyList_RemovedAtTheEnd()
+    public void RemoveLast_2itemsList_RemovedAtTheEnd()
     {
         // Arrange
         ILinkedList<char> linkedListKata = new LinkedListKata<char>();
+        linkedListKata.AddLast('b');
+        linkedListKata.AddLast('a');
         char itemLastBeforeRemoval = linkedListKata.Last();
         // Act
         linkedListKata.RemoveLast();
@@ -162,7 +175,7 @@ public class LinkedListTest
         Assert.That(itemLast, Is.Not.EqualTo(itemLastBeforeRemoval));
     }
     [Test]
-    public void RemoveFirst_EmptyList_ThrowsException()
+    public void RemoveFirst_List_ThrowsException()
     {
         // Arrange
         ILinkedList<char> linkedListKata = new LinkedListKata<char>();
@@ -195,19 +208,30 @@ public class LinkedListTest
         // Act Assert
         Assert.Throws<InvalidOperationException>(() => linkedListKata.Next());
     }
+    /*
+    <summary>
+        Checks that at the last item's index, 
+        Next() moves the pointer to the first item.
+    </summary>
+    */
     [Test]
-    public void EnumeratesCurrent_2itemsList_ReturnesFirstAndSecondInARow()
+    public void EnumeratesCurrent_2itemsList_ReturnesFirstAndSecondAndFirstInARow()
     {
         // Arrange
         ILinkedList<char> linkedListKata = new LinkedListKata<char>();
+        char[] content = new char[]{'a','b'};
+        foreach(char c in content)
+        {
+            linkedListKata.AddLast(c);
+        }
         // Act 
-        linkedListKata.AddFirst('a');
-        linkedListKata.AddFirst('b');
         char item = linkedListKata.Current();
         // Assert
-        Assert.That(item, Is.EqualTo('a'));
-        linkedListKata.Next();
-        item = linkedListKata.Current();
-        Assert.That(item, Is.EqualTo('b'));
+        for(short s = 0; s<3; s++)
+        {
+            Assert.That(item, Is.EqualTo(content[s%2]));
+            linkedListKata.Next();
+            item = linkedListKata.Current();
+        }
     }
 }

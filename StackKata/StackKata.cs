@@ -43,6 +43,9 @@ public class StackKata
         This method removes an element from the end of the stack.
         The last inserted element is removed from the LIFO data structure.
     </summary>
+    <exception cref="InvalidOperationException">
+        To remove an item the stack must'nt be empty.
+    </exception>
     */
     public void Pop()
     {
@@ -62,6 +65,9 @@ public class StackKata
     <returns>
         The last inserted element is returned.
     </returns>
+    <exception cref="InvalidOperationException">
+        To return an item the stack must'nt be empty.
+    </exception>
     */
     public short Peek()
     {
@@ -69,7 +75,7 @@ public class StackKata
             throw new InvalidOperationException("To peek from the stack it must contain at least 1 element.");
         else
         {
-            return Stack.ElementAt(Counter - 1);
+            return Stack[Counter - 1];
         }
     }
 }

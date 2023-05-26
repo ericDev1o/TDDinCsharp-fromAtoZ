@@ -8,13 +8,6 @@ namespace LinkedListKata;
 */
 public interface ILinkedList<T>
 {
-    /*
-    <summary>
-        The first implementation is open to modification.
-        It'll maybe be changed in a private LinkedListKata _current. 
-    </summary>
-    */
-    short CurrentIdx { get; internal set; }
     public List<T> MyList { get; }
     public bool IsEmpty();
     public T First();

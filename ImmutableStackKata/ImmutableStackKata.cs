@@ -58,6 +58,12 @@ public class ImmutableStackKata<T> : IStack<T>
     <summary>
         Push adds an item on top of the LIFO stack.
     </summary>
+    <param name="item">
+        The typed item to add.
+    </param> 
+    <returns>
+        The Pop method returns a new immutable stack object without the last added item.
+    </returns>
     */
     public IStack<T> Push(T item)
     {
@@ -75,6 +81,12 @@ public class ImmutableStackKata<T> : IStack<T>
     <summary>
         Pop removes the pushed item. It removes it instead of peek returning it.
     </summary>
+    <returns>
+        The Pop method returns a new immutable stack object without the last added item.
+    </returns>
+    <exception cref="InvalidOperationException">
+        To remove an item the stack must'nt be empty.
+    </exception>
     */
     public IStack<T> Pop()
     {
@@ -82,7 +94,7 @@ public class ImmutableStackKata<T> : IStack<T>
             throw new InvalidOperationException("The Stack must'nt be empty to Peek the last inserted item.");
         else
         {
-            MyStack.Remove(MyStack.ElementAt(MyStack.Count - 1));
+            MyStack.RemoveAt(MyStack.Count - 1);
             return new ImmutableStackKata<T>();
         }
     }
@@ -90,6 +102,12 @@ public class ImmutableStackKata<T> : IStack<T>
     <summary>
         Peek returns the pushed item. It is the last added on top item.
     </summary>
+    <returns>
+        Peek() returns the last added item.
+    </returns>
+    <exception cref="InvalidOperationException">
+        To return an item the stack must'nt be empty.
+    </exception>
     */
     public T Peek()
     {
@@ -106,6 +124,9 @@ public class ImmutableStackKata<T> : IStack<T>
         The IsEmpty method used in the mutable stack implementation 
         is kept for pop and peek robustness.
     </summary>
+    <returns>
+        Returns true if the immutable stack is empty.
+    </returns>
     */
     public bool IsEmpty()
     {
