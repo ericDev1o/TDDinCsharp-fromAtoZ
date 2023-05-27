@@ -1,7 +1,8 @@
 namespace FizzBuzz;
 /*
 <summary>
-    Simple TDD FizzBuzz practice
+    Simple TDD FizzBuzz practice.
+    It is a simple divider categorization finder.
     Target= less than 15 minutes
 </summary>
 */

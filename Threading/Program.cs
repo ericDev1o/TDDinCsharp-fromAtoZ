@@ -1,2 +1,2 @@
-﻿Threading.UpdateableSpin us = new Threading.UpdateableSpin();
+﻿Threading.Business.UpdateableSpin us = new Threading.Business.UpdateableSpin();
 Console.WriteLine(us.Wait(TimeSpan.FromMilliseconds(10)));

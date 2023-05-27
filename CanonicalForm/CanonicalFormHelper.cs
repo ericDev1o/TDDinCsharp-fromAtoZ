@@ -1,3 +1,13 @@
+namespace CanonicalForm;
+/*
+<summary>
+    CanonicalFormHelper takes a string as input.
+    It reduces it to unique way of writing it.
+    The aim is to check the input string:
+        - in a simpler way
+        - improving the check performance
+</summary>
+*/
 public class CanonicalFormHelper
 {
     /*

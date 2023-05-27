@@ -2,9 +2,9 @@
 string argumentException = "No string to canonicalize.";
 try
 {
-    Console.WriteLine(CanonicalFormHelper.Capitalize_EFA(s));
-    Console.WriteLine(CanonicalFormHelper.Capitalize_EFO(s));
-    Console.WriteLine(CanonicalFormHelper.Capitalize_EFO_Linq(s));
+    Console.WriteLine(CanonicalForm.CanonicalFormHelper.Capitalize_EFA(s));
+    Console.WriteLine(CanonicalForm.CanonicalFormHelper.Capitalize_EFO(s));
+    Console.WriteLine(CanonicalForm.CanonicalFormHelper.Capitalize_EFO_Linq(s));
 }
 catch(ArgumentNullException e)
 {
