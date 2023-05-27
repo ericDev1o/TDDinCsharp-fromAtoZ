@@ -19,6 +19,8 @@ public class LinkedListKata<T> : ILinkedList<T>
     </summary>   
     */
     private short _current;
+    //private readonly ILogger<LinkedListKata<T>> _logger;
+    private readonly ILogger _logger;
     /*
     <summary>
         The List is chosen for the wider range of manipulation methods than T[].
@@ -30,10 +32,11 @@ public class LinkedListKata<T> : ILinkedList<T>
         The initial LinkedList is empty pointing on the first index.
     </summary>   
     */
-    public LinkedListKata()
+    public LinkedListKata(ILogger logger)
     {
         MyList = new List<T>();
         _current = 0;
+        _logger = logger;
     }
     /*
     <summary>
@@ -97,6 +100,7 @@ public class LinkedListKata<T> : ILinkedList<T>
         if(MyList.Count != 0)
             MyListAdded.AddRange(MyList);
         MyList = MyListAdded;
+        _logger.LogInformation($"Added at the beginning item {item}", item);
     }
     /*
     <summary>
@@ -109,6 +113,7 @@ public class LinkedListKata<T> : ILinkedList<T>
     public void AddLast(T item)
     {
         MyList.Add(item);
+        _logger.LogInformation($"Added at the end item {item}", item);
     }
     /*
     <summary>
@@ -123,7 +128,10 @@ public class LinkedListKata<T> : ILinkedList<T>
         if(IsEmpty())
             throw new InvalidOperationException("To remove from the stack it must contain at least 1 element.");
         else
+        {
             MyList.RemoveAt(0);
+            _logger.LogInformation("Removed the item at the beginning");
+        }
     }
     /*
     <summary>
@@ -138,7 +146,10 @@ public class LinkedListKata<T> : ILinkedList<T>
         if(IsEmpty())
             throw new InvalidOperationException("To remove from the stack it must contain at least 1 element.");
         else
+        {
             MyList.RemoveAt(MyList.Count - 1);
+            _logger.LogInformation("Removed the item at the end");
+        }
     }
     /*
     <summary>

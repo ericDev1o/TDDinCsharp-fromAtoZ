@@ -8,6 +8,7 @@ namespace LinkedListKata.Tests;
 [TestFixture]
 public class LinkedListTest
 {
+    private ILogger _logger = new LoggerDummy();
     /*
     <summary>
         The IsEmpty method is as Stack's and ImmutableStack's.
@@ -17,7 +18,7 @@ public class LinkedListTest
     public void IsEmpty_EmptyList_ReturnsTrue()
     {
         // Arrange
-        ILinkedList<char> linkedListKata = new LinkedListKata<char>();
+        ILinkedList<char> linkedListKata = new LinkedListKata<char>(_logger);
         // Act Assert
         Assert.IsTrue(linkedListKata.IsEmpty());
     }
@@ -25,7 +26,7 @@ public class LinkedListTest
     public void First_EmptyList_ThrowsException()
     {
         // Arrange
-        ILinkedList<char> linkedListKata = new LinkedListKata<char>();
+        ILinkedList<char> linkedListKata = new LinkedListKata<char>(_logger);
         // Act Assert
         Assert.Throws<InvalidOperationException>(() => linkedListKata.First());
     }
@@ -33,17 +34,16 @@ public class LinkedListTest
     public void Last_EmptyList_ThrowsException()
     {
         // Arrange
-        ILinkedList<char> linkedListKata = new LinkedListKata<char>();
+        ILinkedList<char> linkedListKata = new LinkedListKata<char>(_logger);
         // Act Assert
         Assert.Throws<InvalidOperationException>(() => linkedListKata.Last());
     }
     [Test]
-    public void FirstAndLast_2itemsList_AreSame()
+    public void FirstAndLast_1itemList_AreSame()
     {
         // Arrange
-        ILinkedList<char> linkedListKata = new LinkedListKata<char>();
+        ILinkedList<char> linkedListKata = new LinkedListKata<char>(_logger);
         linkedListKata.AddLast('a');
-        linkedListKata.AddLast('b');
         // Act 
         // Assert
         Assert.That(linkedListKata.First(), Is.EqualTo(linkedListKata.Last()));
@@ -52,7 +52,7 @@ public class LinkedListTest
     public void Last_2itemsList_ReturnsLast()
     {
         // Arrange
-        ILinkedList<char> linkedListKata = new LinkedListKata<char>();
+        ILinkedList<char> linkedListKata = new LinkedListKata<char>(_logger);
         linkedListKata.AddLast('a');
         linkedListKata.AddLast('b');
         // Act 
@@ -64,7 +64,7 @@ public class LinkedListTest
     public void First_2itemsList_ReturnsFirst()
     {
         // Arrange
-        ILinkedList<char> linkedListKata = new LinkedListKata<char>();
+        ILinkedList<char> linkedListKata = new LinkedListKata<char>(_logger);
         linkedListKata.AddFirst('b');
         linkedListKata.AddFirst('a');
         // Act 
@@ -76,7 +76,7 @@ public class LinkedListTest
     public void AddFirst_EmptyList_CountEquals1()
     {
         // Arrange
-        ILinkedList<char> linkedListKata = new LinkedListKata<char>();
+        ILinkedList<char> linkedListKata = new LinkedListKata<char>(_logger);
         int countBeforeAdding = linkedListKata.MyList.Count;
         // Act
         linkedListKata.AddFirst('a');
@@ -93,7 +93,7 @@ public class LinkedListTest
     public void AddFirst_EmptyList_AddedAtTheBeginning()
     {
         // Arrange
-        ILinkedList<char> linkedListKata = new LinkedListKata<char>();
+        ILinkedList<char> linkedListKata = new LinkedListKata<char>(_logger);
         linkedListKata.AddFirst('b');
         char itemFirstBeforeAdding = linkedListKata.First();
         // Act
@@ -111,7 +111,7 @@ public class LinkedListTest
     public void AddLast_EmptyList_CountEquals1()
     {
         // Arrange
-        ILinkedList<char> linkedListKata = new LinkedListKata<char>();
+        ILinkedList<char> linkedListKata = new LinkedListKata<char>(_logger);
         int countBeforeAdding = linkedListKata.MyList.Count;
         // Act
         linkedListKata.AddLast('a');
@@ -123,7 +123,7 @@ public class LinkedListTest
     public void AddLast_EmptyList_AddedAtTheEnd()
     {
         // Arrange
-        ILinkedList<char> linkedListKata = new LinkedListKata<char>();
+        ILinkedList<char> linkedListKata = new LinkedListKata<char>(_logger);
         linkedListKata.AddLast('b');
         char itemLastBeforeAdding = linkedListKata.Last();
         // Act
@@ -136,7 +136,7 @@ public class LinkedListTest
     public void RemoveFirst_1itemList_CountEquals0()
     {
         // Arrange
-        ILinkedList<char> linkedListKata = new LinkedListKata<char>();
+        ILinkedList<char> linkedListKata = new LinkedListKata<char>(_logger);
         linkedListKata.AddFirst('a');
         int countBeforeRemoval = linkedListKata.MyList.Count;
         // Act
@@ -149,7 +149,7 @@ public class LinkedListTest
     public void RemoveFirst_2itemsList_RemovedAtTheBeginning()
     {
         // Arrange
-        ILinkedList<char> linkedListKata = new LinkedListKata<char>();
+        ILinkedList<char> linkedListKata = new LinkedListKata<char>(_logger);
         linkedListKata.AddFirst('a');
         linkedListKata.AddFirst('b');
         char itemFirstBeforeRemoval = linkedListKata.First();
@@ -163,7 +163,7 @@ public class LinkedListTest
     public void RemoveLast_1itemList_CountEquals0()
     {
         // Arrange
-        ILinkedList<char> linkedListKata = new LinkedListKata<char>();
+        ILinkedList<char> linkedListKata = new LinkedListKata<char>(_logger);
         linkedListKata.AddLast('a');
         int countBeforeRemoval = linkedListKata.MyList.Count;
         // Act
@@ -176,7 +176,7 @@ public class LinkedListTest
     public void RemoveLast_2itemsList_RemovedAtTheEnd()
     {
         // Arrange
-        ILinkedList<char> linkedListKata = new LinkedListKata<char>();
+        ILinkedList<char> linkedListKata = new LinkedListKata<char>(_logger);
         linkedListKata.AddLast('b');
         linkedListKata.AddLast('a');
         char itemLastBeforeRemoval = linkedListKata.Last();
@@ -190,7 +190,7 @@ public class LinkedListTest
     public void RemoveFirst_List_ThrowsException()
     {
         // Arrange
-        ILinkedList<char> linkedListKata = new LinkedListKata<char>();
+        ILinkedList<char> linkedListKata = new LinkedListKata<char>(_logger);
         // Act
         // Assert
         Assert.Throws<InvalidOperationException>(() => linkedListKata.RemoveFirst());
@@ -199,7 +199,7 @@ public class LinkedListTest
     public void RemoveLast_EmptyList_ThrowsException()
     {
         // Arrange
-        ILinkedList<char> linkedListKata = new LinkedListKata<char>();
+        ILinkedList<char> linkedListKata = new LinkedListKata<char>(_logger);
         // Act
         // Assert
         Assert.Throws<InvalidOperationException>(() => linkedListKata.RemoveLast());
@@ -208,7 +208,7 @@ public class LinkedListTest
     public void EnumeratesCurrent_EmptyList_ThrowsException()
     {
         // Arrange
-        ILinkedList<char> linkedListKata = new LinkedListKata<char>();
+        ILinkedList<char> linkedListKata = new LinkedListKata<char>(_logger);
         // Act Assert
         Assert.Throws<InvalidOperationException>(() => linkedListKata.Current());
     }
@@ -216,7 +216,7 @@ public class LinkedListTest
     public void EnumeratesNext_EmptyList_ThrowsException()
     {
         // Arrange
-        ILinkedList<char> linkedListKata = new LinkedListKata<char>();
+        ILinkedList<char> linkedListKata = new LinkedListKata<char>(_logger);
         // Act Assert
         Assert.Throws<InvalidOperationException>(() => linkedListKata.Next());
     }
@@ -230,7 +230,7 @@ public class LinkedListTest
     public void EnumeratesCurrent_2itemsList_ReturnesFirstAndSecondAndFirstInARow()
     {
         // Arrange
-        ILinkedList<char> linkedListKata = new LinkedListKata<char>();
+        ILinkedList<char> linkedListKata = new LinkedListKata<char>(_logger);
         char[] content = new char[]{'a','b'};
         foreach(char c in content)
         {

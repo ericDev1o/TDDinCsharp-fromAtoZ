@@ -1,5 +1,6 @@
 ﻿// Arrange
-LinkedListKata.ILinkedList<char> linkedListKata = new LinkedListKata.LinkedListKata<char>();
+LinkedListKata.ILinkedList<char> linkedListKata = 
+    new LinkedListKata.LinkedListKata<char>(new LinkedListKata.Helpers.Loggers.LoggerDummy());
 // Act 
 linkedListKata.AddFirst('a');
 linkedListKata.AddFirst('b');
