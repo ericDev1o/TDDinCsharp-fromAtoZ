@@ -100,7 +100,7 @@ public class LinkedListKata<T> : ILinkedList<T>
         if(MyList.Count != 0)
             MyListAdded.AddRange(MyList);
         MyList = MyListAdded;
-        _logger.LogInformation($"Added at the beginning item {item}", item);
+        _logger.LogInformation(string.Format("Added at the beginning item {0}", item.ToString()));
     }
     /*
     <summary>
@@ -113,7 +113,7 @@ public class LinkedListKata<T> : ILinkedList<T>
     public void AddLast(T item)
     {
         MyList.Add(item);
-        _logger.LogInformation($"Added at the end item {item}", item);
+        _logger.LogInformation(string.Format("Added at the end item {0}", item.ToString()));
     }
     /*
     <summary>
