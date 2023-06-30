@@ -10,7 +10,7 @@ using System.Text;
 */
 public class Game
 {
-    public static short MoveCounter{ get; private set;} = 0;
+    public short MoveCounter{ get; private set;} = 0;
     public State[] Board {get; private set;} = new State[9];
     public bool Win {get; private set;} = false;
     public Game()
@@ -76,24 +76,37 @@ public class Game
     }
     /*
     <summary>
-        This checker returns true in all winning configurations.
+        This checker returns the winner(crosses or zeroes) in all winning configurations.
     </summary>
     <returns>
-        true if zeroes or crosses are played 
+        Zeroes or Crosses if played 
         - by the same player
         - on a line:
             - vertical
             - horizontal
             - diagonal
-        else false
+        else GameOngoing
     </returns>
     */
     public WinState CheckWin()
     {
-        GameHelper.CheckHorizontalLineHelper(this);
-        GameHelper.CheckVerticalLineHelper(this);
-        GameHelper.CheckDiagonalLineHelper(this);
-        return WinState.GameOngoing;
+        WinState result = GameHelper.CheckHorizontalLineHelper(this);
+        if(result != WinState.GameOngoing)
+            return result;
+        else
+        {
+            result = GameHelper.CheckVerticalLineHelper(this);
+            if(result != WinState.GameOngoing)
+                return result;
+            else
+            {
+                result = GameHelper.CheckDiagonalLineHelper(this);
+                if(result != WinState.GameOngoing)
+                    return result;
+                else
+                    return WinState.GameOngoing;
+            }
+        }
     }
     /*
     <summary>

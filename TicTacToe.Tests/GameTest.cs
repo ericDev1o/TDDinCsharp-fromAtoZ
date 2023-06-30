@@ -14,7 +14,7 @@ public class Tests
         Game game = new Game();
         //Act
         //Assert
-        Assert.That(Game.MoveCounter, Is.EqualTo(0));
+        Assert.That(game.MoveCounter, Is.EqualTo(0));
     }
     /*
     <summary>
@@ -50,11 +50,11 @@ public class Tests
     {
         //Arrange
         Game game = new Game();
-        int moveCounter = Game.MoveCounter;
+        int moveCounter = game.MoveCounter;
         //Act
         game.MakeMove(1, State.Cross);
         //Assert
-        Assert.That(Game.MoveCounter, Is.EqualTo(moveCounter + 1));
+        Assert.That(game.MoveCounter, Is.EqualTo(moveCounter + 1));
     }
     /*
     <summary>
